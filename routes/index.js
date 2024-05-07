@@ -32,4 +32,6 @@ router.get('/posts/new', postController.new); //tarea 8.1
 
 router.post('/posts', upload.single('image'), postController.create); //tarea 8.2
 
+router.get('/posts/:postId(\\d+)/edit', postController.edit); //tarea 8.3
+
 module.exports = router;
