@@ -1,11 +1,11 @@
 <section>
     <h2>Posts:</h2>
     <% for (var i in listaPosts) { %>
-        <% var post = posts[i]; %>
+        <% var post = listaPosts[i]; %>
         <article class="postShow">
-            <h3 class="postTitle"><%= post.title %></h3>
+            <h3 ><%= post.title %></h3>
             <%# include('../attachments/_attachment', { post: post }) %>
-            <div class="postOptions">
+            <div>
                 <a class="button-2" href="/posts/<%= post.id %>">Show</a>
                 <a class="button-2" href="/posts/<%= post.id %>/edit">Edit</a>
                 <a class="button-2" href="/posts/<%= post.id %>?_method=DELETE" onClick="return confirm('Delete: <%= post.title %>');">Delete</a>
