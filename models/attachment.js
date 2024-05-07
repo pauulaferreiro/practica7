@@ -13,9 +13,6 @@ module.exports = (sequelize, DataTypes) => {
             image: {
                 type: DataTypes.BLOB('long')
             },
-            url: {
-                type: DataTypes.STRING
-            }
         }, {sequelize}
     );
 
