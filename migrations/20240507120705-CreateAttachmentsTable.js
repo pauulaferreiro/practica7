@@ -18,12 +18,12 @@ module.exports = {
           type: Sequelize.STRING
         },
 
-        url: {
-          type: Sequelize.STRING
-        },
-
         image: {
           type: Sequelize.BLOB('long')
+        },
+
+        url: {
+          type: Sequelize.STRING
         },
 
         createdAt: {
