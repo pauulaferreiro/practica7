@@ -18,4 +18,5 @@ router.get('/posts/:postId(\\d+)/attachment', postController.attachment); //tare
 
 router.get('/posts', postController.index); //tarea 6
 
+router.get('/posts/:postId(\\d+)', postController.show); //tarea 7
 module.exports = router;
