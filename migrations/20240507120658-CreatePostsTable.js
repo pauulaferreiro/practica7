@@ -6,7 +6,7 @@ module.exports = {
     await queryInterface.createTable(
       'Posts',
       {
-          id: {
+          id: { //por defecto así
               type: Sequelize.INTEGER, 
               allowNull: false,
               primaryKey: true,
@@ -25,7 +25,7 @@ module.exports = {
           },
 
           attachmentId: {
-            type: Sequelize.STRING,
+            type: Sequelize.INTEGER,
             references: {
               model: "Attachments",
               key: "id"
@@ -35,12 +35,12 @@ module.exports = {
             onDelete: 'SET NULL'
           },
 
-          createdAt: {
+          createdAt: { //por defecto así
               type: Sequelize.DATE,
               allowNull: false
           },
 
-          updatedAt: {
+          updatedAt: { //por defecto así
               type: Sequelize.DATE,
               allowNull: false
           }
@@ -49,6 +49,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('Posts');
+    await queryInterface.dropTable('Posts'); //por defecto así
   }
 };
