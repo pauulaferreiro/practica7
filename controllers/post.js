@@ -44,12 +44,12 @@ exports.index = async (req, res, next) => {
     try {
         
 
-        const posts = await models.Post.findAll( ()=>
-            include [
+        const posts = await models.Post.findAll({
+            include: [
                 {model: models.Attachment, as: 'attachment'}
             ]
-        );
-        res.render('posts/index.ejs', {posts});
+        });
+        res.render('posts/index.ejs', {listaPosts: posts});
     } catch (error) {
         next(error);
     }
