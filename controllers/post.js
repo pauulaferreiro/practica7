@@ -32,9 +32,6 @@ exports.attachment = (req, res, next) => {
         res.type(attachment.mime);
         res.send(Buffer.from(attachment.image.toString(), 'base64'));
     }
-    else if (attachment.url) {
-        res.redirect(attachment.url);
-    }
     else {
         res.redirect("/images/none.png");
     }
@@ -105,13 +102,11 @@ exports.create = async (req, res, next) => {
 
 const createPostAttachment = async (req, post) => {
     const image = req.file.buffer.toString('base64');
-    const url = `${req.protocol}://${req.get('host')}/posts/${post.id}/attachment`;
 
     // Create the new attachment into the data base.
     const attachment = await models.Attachment.create({
         mime: req.file.mimetype,
-        image,
-        url
+        image
     });
     await post.setAttachment(attachment);
     console.log('Success: Attachment saved successfully.');

@@ -22,8 +22,14 @@ module.exports = {
           type: Sequelize.BLOB('long')
         },
 
-        url: {
-          type: Sequelize.STRING
+        postId: {
+          type: Sequelize.STRING,
+          references: {
+            model: "Posts",
+            key: "id"
+          },
+          onUpdate: 'CASCADE',
+          onDelete: 'SET NULL'
         },
 
         createdAt: {

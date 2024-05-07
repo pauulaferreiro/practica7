@@ -24,17 +24,6 @@ module.exports = {
               validate: {notEmpty: {msg: "Body no puede estar vacío"}}
           },
 
-          attachmentId: {
-            type: Sequelize.INTEGER,
-            references: {
-              model: "Attachments",
-              key: "id"
-            },
-
-            onUpdate: 'CASCADE',
-            onDelete: 'SET NULL'
-          },
-
           createdAt: { //por defecto así
               type: Sequelize.DATE,
               allowNull: false

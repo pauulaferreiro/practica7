@@ -8,7 +8,7 @@ const sequelize = new Sequelize(url, { logging: false }); //crear base de datos.
 const Post = require('./post')(sequelize, Sequelize.DataTypes);
 const Attachment = require('./attachment')(sequelize, Sequelize.DataTypes);
 
-Attachment.hasOne(Post, {as: 'post', foreignKey: 'attachmentId'});
-Post.belongsTo(Attachment, {as: 'attachment', foreignKey: 'attachmentId'});
+Attachment.belongsTo(Post, {as: 'post', foreignKey: 'postId'});
+Post.hasOne(Attachment, {as: 'attachment', foreignKey: 'postId'});
 
 module.exports = sequelize;
