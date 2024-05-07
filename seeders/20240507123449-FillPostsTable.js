@@ -3,10 +3,10 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('Posts', [
+    await queryInterface.bulkInsert("posts", [
       {
-          title: 'Primer Post',
-          body: 'Esta práctica implementa un Blog.',
+          title: "Primer Post",
+          body: "Esta práctica implementa un Blog.",
           createdAt: new Date(),
           updatedAt: new Date()
       },
@@ -26,6 +26,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Posts', null, {});
+    await queryInterface.bulkDelete("posts", null, {});
   }
 };
