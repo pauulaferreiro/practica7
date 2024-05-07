@@ -21,7 +21,6 @@ exports.load = async (req, res, next, postId) => {
     }
 };
 
-// GET /posts/:postId/attachment
 exports.attachment = (req, res, next) => {
     
     const attachment= req.load.post.attachment;
@@ -38,5 +37,20 @@ exports.attachment = (req, res, next) => {
     }
     else {
         res.redirect("/images/none.png");
+    }
+};
+
+exports.index = async (req, res, next) => {
+    try {
+        
+
+        const posts = await models.Post.findAll( ()=>
+            include [
+                {model: models.Attachment, as: 'attachment'}
+            ]
+        );
+        res.render('posts/index.ejs', {posts});
+    } catch (error) {
+        next(error);
     }
 };
