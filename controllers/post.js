@@ -161,3 +161,18 @@ exports.update = async (req, res, next) => {
         }
     }
 };
+
+exports.destroy = async (req, res, next) => {
+    const attachment = req.load.post.attachment;
+
+    try {
+        await req.load.post.destroy();
+        attachment && await attachment.destroy();
+        console.log('Post eliminado con éxito.');
+        res.redirect('/posts');
+    } catch (error) {
+        console.log('Error eliminando Post: ' + error.message);
+
+        next(error);
+    }
+};
