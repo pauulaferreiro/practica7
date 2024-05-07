@@ -54,3 +54,8 @@ exports.index = async (req, res, next) => {
         next(error);
     }
 };
+
+exports.show = (req, res, next) => {
+    const {post} = req.load;
+    res.render('posts/show', {post});
+};
