@@ -14,7 +14,7 @@ exports.load = async (req, res, next, postId) => {
             req.load = {...req.load, post}; //actualizar req con la info de post
             next();
         } else {
-            throw new Error("No existe un post con el id" + postId);
+            throw new Error('No existe un post con el id' + postId);
         }
     } catch (error) {
         next(error);
@@ -44,7 +44,7 @@ exports.index = async (req, res, next) => {
                 {model: models.Attachment, as: 'attachment'}
             ]
         });
-        res.render('posts/index.ejs', {listaPosts: posts});
+        res.render('posts/index.ejs', {posts});
     } catch (error) {
         next(error);
     }
@@ -74,7 +74,7 @@ exports.create = async (req, res, next) => {
         });
 
         post = await post.save({fields: ["title", "body"]});
-        console.log('Post creado con éxito.');
+        console.log("Post creado con éxito!");
 
         try {
             if (!req.file) {
@@ -82,7 +82,6 @@ exports.create = async (req, res, next) => {
                 return;
             }
 
-            // Create the post attachment
             await createPostAttachment(req, post);
         } catch (error) {
             console.log('Error: Failed to create attachment: ' + error.message);
@@ -103,7 +102,6 @@ exports.create = async (req, res, next) => {
 const createPostAttachment = async (req, post) => {
     const image = req.file.buffer.toString('base64');
 
-    // Create the new attachment into the data base.
     const attachment = await models.Attachment.create({
         mime: req.file.mimetype,
         image
@@ -133,13 +131,13 @@ exports.update = async (req, res, next) => {
                 return;
             }
 
-            // Delete old attachment.
+            // borrar antiguo attachment.
             if (post.attachment) {
                 await post.attachment.destroy();
                 await post.setAttachment();
             }
 
-            // Create the post attachment
+            // crear post attachment
             await createPostAttachment(req, post);
         } catch (error) {
             console.log('Error: Fallo guardando la foto: ' + error.message);

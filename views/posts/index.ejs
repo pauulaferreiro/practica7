@@ -1,7 +1,7 @@
 <section>
     <h2>Posts:</h2>
-    <% for (var i in listaPosts) { %>
-        <% var post = listaPosts[i]; %>
+    <% for (var i in posts) { %>
+        <% var post = posts[i]; %>
         <article class="postShow">
             <h3 ><%= post.title %></h3>
             <%- include('../attachments/attachment', { post: post }) %>
