@@ -57,3 +57,11 @@ exports.show = (req, res, next) => {
     const post = req.load.post;
     res.render('posts/show', {post});
 };
+
+exports.new = (req, res, next) => {
+    const post = {
+        title: "",
+        body: ""
+    };
+    res.render('posts/new', {post});
+};
