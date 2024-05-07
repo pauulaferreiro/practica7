@@ -12,8 +12,10 @@ router.get('/author',function(req, res, next){
   res.render('author',  { title: 'Blog' });
 })
 
-router.param('postId', postController.load);
+router.param('postId', postController.load); //tarea 4
 
-router.get('/posts/:postId(\\d+)/attachment', postController.attachment);
+router.get('/posts/:postId(\\d+)/attachment', postController.attachment); //tarea 5
+
+router.get('/posts', postController.index); //tarea 6
 
 module.exports = router;
