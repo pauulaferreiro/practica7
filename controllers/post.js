@@ -42,8 +42,6 @@ exports.attachment = (req, res, next) => {
 
 exports.index = async (req, res, next) => {
     try {
-        
-
         const posts = await models.Post.findAll({
             include: [
                 {model: models.Attachment, as: 'attachment'}
@@ -56,6 +54,6 @@ exports.index = async (req, res, next) => {
 };
 
 exports.show = (req, res, next) => {
-    const {post} = req.load;
+    const post = req.load.post;
     res.render('posts/show', {post});
 };
