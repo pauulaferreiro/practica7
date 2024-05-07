@@ -2,7 +2,7 @@
 
 const {Model} = require('sequelize');
 
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => { //para poder requerirlo en el index
 
     class Post extends Model { } //hasta aquí DE MEMORIA!
 
@@ -12,11 +12,11 @@ module.exports = (sequelize, DataTypes) => {
                 validate: {notEmpty: {msg: "Title no puede estar vacío"}}
             },
             body: {
-                type: DataTypes.STRING,
+                type: DataTypes.TEXT,
                 validate: {notEmpty: {msg: "Body no puede estar vacío"}}
             }
         }, {sequelize}
     );
 
-    return Post;
+    return Post; //para poder requerirlo en el index
 };
