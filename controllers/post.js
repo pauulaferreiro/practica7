@@ -116,3 +116,8 @@ const createPostAttachment = async (req, post) => {
     await post.setAttachment(attachment);
     console.log('Success: Attachment saved successfully.');
 };
+
+exports.edit = (req, res, next) => {
+    const {post} = req.load;
+    res.render('posts/edit', {post});
+};
