@@ -19,5 +19,5 @@ module.exports = (sequelize, DataTypes) => {
         }, {sequelize}
     );
 
-    return Post;
+    return Attachment;
 };

@@ -4,7 +4,7 @@ const {Model} = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => { //para poder requerirlo en el index
 
-    class Post extends Model { } //hasta aquí DE MEMORIA!
+    class Post extends Model { } //hasta aquí DE MEMORIA! -> chuleta
 
     Post.init({
             title: {
