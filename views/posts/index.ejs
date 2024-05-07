@@ -6,9 +6,10 @@
             <h3 ><%= post.title %></h3>
             <%- include('../attachments/attachment', { post: post }) %>
             <div>
-                <a class="button-2" href="/posts/<%= post.id %>">Show</a>
+                <a class="button-2" href="/posts/<%= post.id %>">Show</a> <!-- da igual - o = -->
                 <a class="button-2" href="/posts/<%= post.id %>/edit">Edit</a>
                 <a class="button-2" href="/posts/<%= post.id %>?_method=DELETE" onClick="return confirm('Delete: <%= post.title %>');">Delete</a>
+                <a href="/posts/new"> New Post</a>
             </div>
         </article>
     <% } %>
