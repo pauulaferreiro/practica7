@@ -1,8 +1,27 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
-a {
-  color: #00B7FF;
+nav{
+  padding: 5px;
 }
+.datos-personales{
+  padding: 10px;
+}
+.author{
+  display: flex;
+}
+.home{
+  text-align: center;
+}
+.informacion-inicial{
+  margin: 10px;
+  padding-top: 10px;
+}
+#nombre{
+  text-decoration: underline;
+}
+.links{
+  margin-bottom: 20px;
+}
+footer{text-align: center;}
