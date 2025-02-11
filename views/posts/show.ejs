@@ -1,0 +1,10 @@
+<section>
+    <h2>Show Post:</h2>
+    <%- include('../attachments/attachment', { post: post }) %>
+    <article class="postShow">
+        <ul>
+            <li>Title:<%= post.title %></li>
+            <li>Body:<%= post.body %></li>
+        </ul>
+    </article>
+</section>
